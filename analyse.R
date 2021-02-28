@@ -631,8 +631,10 @@ df_test1 <- df_verletzungenResultModel %>%
 df_test1 <- df_verletzungenResultModel %>%
   group_by(saison) %>%
   count(saison)
-plot(df_test1)
+plot(df_test1, type="o", xaxt="n")
+axis(side=1, at=x, labels=x)
 hist(df_test1$n)
+x <- c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)
 
 # Durchschnittliche Anzahl an Verletzungstagen je Liga
 GetMeanInjuryDaysByLeague <- function(league) {
